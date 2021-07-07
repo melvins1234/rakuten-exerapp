@@ -137,7 +137,7 @@
                         <button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm"
                           data-original-title="Edit Task" data-toggle="modal" data-target="#editModal" 
                           th:data-row="${product}" 
-                          th:onclick="'modalEdit(\''+${product}+'\');'">
+                          th:onclick="|modalEdit('${product.getId}')|">
                           <i class="material-icons">edit</i>
                         </button>
                         <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm"
