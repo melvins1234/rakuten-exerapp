@@ -12,7 +12,7 @@
 	<artifactId>rakuten-web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>rakuten-web</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Rakuten Spring Boot Web application</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
