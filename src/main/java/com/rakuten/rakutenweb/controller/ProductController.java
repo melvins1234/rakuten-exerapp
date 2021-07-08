@@ -34,7 +34,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String saveProduct(@ModelAttribute("user") Product product, Model model) {
+	public String saveProduct(@ModelAttribute("product") Product product, Model model) {
 		System.out.println(product);
 		productService.save(product);
 	    return "redirect:/";

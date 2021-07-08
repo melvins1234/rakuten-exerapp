@@ -71,23 +71,23 @@
                            <div class="modal-body">
                                <div class="form-group">
                                    <label for="productId">Product Id</label>
-                                   <input type="text" field="id" name="id" class="form-control" id="productId" disabled readonly="readonly">
+                                   <input type="text" field="id" name="id" class="form-control" id="productId" readonly="readonly">
                                </div>
                                <div class="form-group">
-                                   <label for="productName">Product Name</label>
-                                   <input type="text" field="name" name="name" class="form-control" id="productName">
+                                   <label for="editProductName">Product Name</label>
+                                   <input type="text" field="name" name="name" class="form-control" id="editProductName">
                                </div>
                                <div class="form-group">
-                                   <label for="productBrand">Product Brand</label>
-                                   <input type="text" field="brand" name="brand" class="form-control" id="productBrand">
+                                   <label for="editProductBrand">Product Brand</label>
+                                   <input type="text" field="brand" name="brand" class="form-control" id="editProductBrand">
                                </div>
                                <div class="form-group">
-                                   <label for="discountPrice">Discount Price</label>
-                                   <input type="text" field="discountPrice" name="discountPrice" class="form-control" id="discountPrice">
+                                   <label for="editDiscountPrice">Discount Price</label>
+                                   <input type="text" field="discountPrice" name="discountPrice" class="form-control" id="editDiscountPrice">
                                </div>
                                <div class="form-group">
-                                   <label for="price">Price</label>
-                                   <input type="text" onkeypress="return isNumberKey(event)" field="price" name="price" class="form-control" id="price">
+                                   <label for="editPrice">Price</label>
+                                   <input type="text" onkeypress="return isNumberKey(event)" field="price" name="price" class="form-control" id="editPrice">
                                </div>
                                <div class="form-group">
                                    <button type="button" class="btn btn-secondary"
@@ -134,11 +134,10 @@
                       <td th:text="${product.getDiscountPrice()}"></td>
                       <td th:text="${product.getPrice()}"></td>
                       <td>
-                        <button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm"
+                        <button type="button" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm edit-data"
                           data-original-title="Edit Task" data-toggle="modal" data-target="#editModal" 
-                          th:data-row="${product}" 
-                          th:onclick="|modalEdit('${product.getId}')|">
-                          <i class="material-icons">edit</i>
+                          th:data-row="${product}">
+                          <i class="material-icons" style="pointer-events: none;">edit</i>
                         </button>
                         <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm"
                           data-original-title="Remove" th:onclick="|deleteProduct('${product.id}')|">
@@ -194,9 +193,19 @@
       })
     }
 
-    let modalEdit = (id, name, brand, discountPrice, price) => {
-		console.log(id)
-    }
+    document.addEventListener('click', (e) => {
+    	let prodObj = {}
+    	if(e.target.className.split(" ").indexOf('edit-data') > -1){
+    		let obj = e.target.offsetParent.children;
+    		document.querySelector('#productId').value = obj[0].textContent;
+    		document.querySelector('#editProductName').value = obj[1].textContent;
+    		document.querySelector('#editProductBrand').value = obj[2].textContent;
+    		document.querySelector('#editDiscountPrice').value = obj[3].textContent;
+    		document.querySelector('#editPrice').value = obj[4].textContent;
+    	}
+    	
+    });
+    
 
   </script>
 </body>
