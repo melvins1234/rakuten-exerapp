@@ -23,6 +23,7 @@ public class ProductController {
 	@RequestMapping("/")
 	public String viewHomePage(Model model) {
 		List<Product> productList = productService.list();
+		System.out.println(productList);
 		model.addAttribute("productList", productList);
 	    return "index";
 	}

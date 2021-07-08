@@ -20,7 +20,7 @@
             <div class="card-header card-header-primary" style="display: flex;justify-content: space-between;">
               <div>
                 <h4 class="card-title ">Product Table</h4>
-                <p class="card-category"> Here is a subtitle for this table</p>
+                <p class="card-category"> Product list table</p>
               </div>
               <button type="button" class="btn btn-light" data-toggle="modal" data-target="#productModal"
                 style="background: #fff;color: #ab47bc;"><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button>
@@ -43,12 +43,12 @@
                       </div>
                       <div class="form-group">
                         <label for="discountPrice">Discount Price</label>
-                        <input type="text" onkeypress="return isNumberKey(event)" field="discountPrice" name="discountPrice" class="form-control"
+                        <input type="text" onkeypress="return isNumberKey(event)" oninput="decimal(this)" field="discountPrice" name="discountPrice" class="form-control"
                           id="discountPrice" required>
                       </div>
                       <div class="form-group">
                         <label for="price">Price</label>
-                        <input type="text" onkeypress="return isNumberKey(event)" field="price" name="price"
+                        <input type="text" onkeypress="return isNumberKey(event)" oninput="decimal(this)" field="price" name="price"
                           class="form-control" id="price" required>
                       </div>
                       <div class="form-group">
@@ -83,11 +83,11 @@
                                </div>
                                <div class="form-group">
                                    <label for="editDiscountPrice">Discount Price</label>
-                                   <input type="text" onkeypress="return isNumberKey(event)" field="discountPrice" name="discountPrice" class="form-control" id="editDiscountPrice" required>
+                                   <input type="text" onkeypress="return isNumberKey(event)" oninput="decimal(this)" field="discountPrice" name="discountPrice" class="form-control" id="editDiscountPrice" required>
                                </div>
                                <div class="form-group">
                                    <label for="editPrice">Price</label>
-                                   <input type="text" onkeypress="return isNumberKey(event)" field="price" name="price" class="form-control" id="editPrice" required>
+                                   <input type="text" onkeypress="return isNumberKey(event)" oninput="decimal(this)" field="price" name="price" class="form-control" id="editPrice" required>
                                </div>
                                <div class="form-group">
                                    <button type="button" class="btn btn-secondary"
@@ -170,6 +170,11 @@
         return false;
 
       return true;
+    }
+    
+    let decimal = (e) => {
+    	var t = e.value;
+    	  e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
     }
 
     let deleteProduct = (id) => {

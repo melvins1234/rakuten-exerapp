@@ -19,8 +19,7 @@ public class Product {
 	
 	@Column(name="discountprice") 
 	private float discountPrice;
-	@Column(precision=8, scale=2) 
-	private float price;
+	private Double price;
 	public Long getId() {
 		return id;
 	}
@@ -47,10 +46,10 @@ public class Product {
 	public void setDiscountPrice(float discountPrice) {
 		this.discountPrice = discountPrice;
 	}
-	public float getPrice() {
+	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(float price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	@Override
