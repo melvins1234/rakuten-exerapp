@@ -55,8 +55,8 @@ public class Product {
 	}
 	@Override
 	public String toString() {
-		return "{ 'id':" + id + ", 'name':\"" + name + "\", 'brand':\"" + brand + "\", 'discountPrice':" + discountPrice
-				+ ", 'price':" + price + "}";
+		return "{id:" + id + ", name:\"" + name + "\", brand:\"" + brand + "\", discountPrice:" + discountPrice
+				+ ", price:" + price + "}";
 	}
 
 }
