@@ -11,10 +11,17 @@
 	<groupId>com.rakuten</groupId>
 	<artifactId>rakuten-web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>rakuten-web</name>
 	<description>Rakuten Spring Boot Web application</description>
 	<properties>
+<<<<<<< HEAD
 		<java.version>1.8</java.version>
+=======
+		<!--  java.version>11</java.version-->
+      <!-- The main class to start by executing java -jar -->
+     <start-class>com.rakuten.rakutenweb</start-class>
+>>>>>>> 486cc35a3424647a1da0328772d2f2034127d3d8
 	</properties>
 
 <dependencies>
@@ -52,10 +59,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+<<<<<<< HEAD
 	    <dependency>
 	      <groupId>org.springframework.boot</groupId>
 	      <artifactId>spring-boot-starter-security</artifactId>
 	    </dependency>
+=======
+		<!-- marked the embedded servlet container as provided -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+        <scope>provided</scope>
+    </dependency>
+>>>>>>> 486cc35a3424647a1da0328772d2f2034127d3d8
 	</dependencies>
 
 	<build>
