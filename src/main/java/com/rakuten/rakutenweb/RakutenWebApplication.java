@@ -6,6 +6,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -31,12 +33,21 @@ public class RakutenWebApplication extends SpringBootServletInitializer {
 		protected void configure(HttpSecurity http) throws Exception {
 			http.csrf().disable()
 				.authorizeRequests()
-				.antMatchers("/resources/**","/images/**").permitAll()
+				.antMatchers("/signup").permitAll()
+				.antMatchers("/resources/**","/images/**","/css/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 				.formLogin()
 				.loginPage("/signin").permitAll();
 		}
+
+		@Override
+		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+			// TODO Auto-generated method stub
+			super.configure(auth);
+		}
+		
+		
 	}
 
 }

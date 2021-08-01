@@ -19,7 +19,7 @@
   <section class='sign-up sign-in'>
     <section class="sign-up__wrapper wrapper">
       <section class="sign-up__description">
-        <h1 class="sign-up__company-name"><a href="index.html">RAKU<span
+        <h1 class="sign-up__company-name"><a th:href="@{/}">RAKU<span
               class="sign-up__company-name--color">TECH</span></a></h1>
         <p class="sign-up__company-desc">Browse from over 500 devices in your area.</p>
       </section>
@@ -33,7 +33,7 @@
         </header>
         <span class="sign-in__separate">OR</span>
         <section class="sign-up__form">
-          <form id="login-submit">
+          <form th:action="@{/login.html}" id="login-submit">
             <div class="sign-up__input-group">
               <label for="email">Email</label>
               <input type="email" name="email" id="email" required>
@@ -51,7 +51,7 @@
           <span class="sign-up__footer--text">By continuing, you agree to accept our Privacy Policy & Terms of
             Service.</span>
           <span class="sign-up__footer--text sign-up__footer__create-acc">Don't have an account? <a
-              href="sign-up-page.html">Create new account</a></span>
+              th:href="@{/signup}">Create new account</a></span>
         </footer>
       </section>
     </section>
